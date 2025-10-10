@@ -7,10 +7,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; margin:0; padding:0; }
-  body { background: linear-gradient(to bottom, #141e30, #243b55); color: #fff; padding-bottom: 140px; }
 
-  
+  :root {
+      --footer-background: #1A1C20;
+      --text-color: #FAFAFA;
+      --intro-color: #7B241C; 
+      --neon-tiktok: #00f0ff;
+      --neon-instagram: #00ff80;
+      --neon-telegram: #00bfff;
+      --neon-facebook: #a020f0;
+      --accent-color: #00ff80; 
+  }
+
+  * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; margin:0; padding:0; }
+  body { 
+      background: linear-gradient(to bottom, #141e30, #243b55); 
+      color: #fff; 
+      padding-bottom: 140px; 
+      overflow-x: hidden; 
+  }
+
   .fade-in-element { opacity: 0; animation: fadeIn 1s ease forwards; }
   .intro { animation-delay: 0.2s; }
   .imam-section { animation-delay: 0.5s; }
@@ -21,39 +37,67 @@
     to {opacity:1; transform: translateY(0);}
   }
 
-  
+
   .intro {
-    background: #5a1a1a;
-    width: 300px;
-    margin: 50px auto 20px;
+    background: var(--intro-color);
+    width: 350px;
+    margin: 50px auto 50px; 
     border-radius: 15px;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   }
-  .intro h1 { font-size: 22px; margin-bottom: 10px; }
-  .intro p { font-size: 16px; color: #f3caca; }
+  .intro h1 { font-size: 24px; margin-bottom: 10px; font-weight: 900; }
+  .intro p { font-size: 17px; color: #f3caca; }
 
-  
+
   .imam-section {
     width: 90%;
-    max-width: 500px;
-    margin: 20px auto;
-    background: #2a2a2a;
-    border-radius: 15px;
+    max-width: 550px;
+    margin: 30px auto 40px; 
+    background: #1e1e1e;
+    border-radius: 20px;
     text-align: center;
-    padding: 20px;
-    transition: all 0.5s ease;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    perspective: 1000px; 
   }
-  .imam-section img.main-img { width: 180px; height: 180px; border-radius: 15px; margin-bottom: 15px; }
-  .imam-section .quote-box { background: #777; border-radius: 10px; padding: 15px; margin: 10px auto; width: 90%; }
-  .quote-box .bold { font-weight: bold; font-size: 16px; }
-  .quote-box .normal { font-size: 14px; color: #ddd; margin-top: 5px; }
-
   
-  .audio-container { margin: 15px auto; text-align: center; }
+
+  .imam-section img.main-img { 
+      width: 250px;
+      height: 250px;
+      border-radius: 15px; 
+      margin-bottom: 25px; 
+      object-fit: cover;
+      border: 3px solid #666;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .imam-section img.main-img:hover {
+      transform: translateZ(20px) scale(1.03); 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-color);
+  }
+
+  .imam-section .quote-box { 
+      background: #333;
+      border-radius: 12px; 
+      padding: 20px; 
+      margin: 25px auto;
+      width: 95%; 
+      border-left: 4px solid var(--accent-color);
+  }
+  .quote-box .bold { font-weight: 900; font-size: 18px; }
+  .quote-box .normal { font-size: 15px; color: #bbb; margin-top: 8px; }
+
+
+  .audio-container { 
+      margin: 30px auto 25px; 
+      text-align: center; 
+  }
   .audio-circle {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     background-size: cover;
     background-position: center;
     background-image: url('https://b.top4top.io/s_3570o38nw1.jpg'); 
@@ -63,101 +107,90 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 3px solid #00ff80;
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
   }
-  .audio-circle i { font-size: 30px; color: #fff; }
+  .audio-circle i { font-size: 40px; color: #fff; } 
   .audio-circle.playing { 
-    border-color: #00d1b2; 
+    border-color: var(--accent-color);
     transform: scale(1.1) rotate(5deg); 
-    box-shadow: 0 0 25px rgba(0,255,128,1), 0 0 40px rgba(0,255,128,0.5);
+    box-shadow: 0 0 30px var(--accent-color), 0 0 50px rgba(0,255,128,0.5); 
     animation: rotatePulse 1s infinite alternate;
   }
-  @keyframes rotatePulse {
-    from { transform: scale(1.1) rotate(0deg); }
-    to { transform: scale(1.15) rotate(-2deg); }
-  }
-  .audio-container p { font-size: 14px; color: #fff; font-weight: 700; }
+  .audio-container p { font-size: 16px; color: #fff; font-weight: 900; } 
 
-  
+
   .third-section {
     width: 90%;
-    max-width: 500px;
-    margin: 20px auto;
+    max-width: 550px;
+    margin: 40px auto;
     background: #1c1c2e;
-    border-radius: 15px;
+    border-radius: 20px;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    perspective: 1000px;
   }
-  .third-section img { width: 200px; border-radius: 15px; margin-bottom: 15px; }
-  .third-section h2 { color: #00ff00; font-size: 20px; margin-bottom: 5px; }
-  .third-section hr { border: 1px solid yellow; width: 80px; margin: 5px auto 10px; }
-  .third-section p { font-size: 14px; line-height: 1.5; color: #ddd; }
 
-  
+  .third-section img { 
+      width: 250px; 
+      border-radius: 15px; 
+      margin-bottom: 20px; 
+      border: 2px solid #00ff00; 
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .third-section img:hover {
+      transform: translateZ(20px) scale(1.03); 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--neon-telegram);
+  }
+
+  .third-section h2 { color: #00ff00; font-size: 24px; margin-bottom: 10px; font-weight: 900; }
+  .third-section hr { border: 1.5px solid yellow; width: 100px; margin: 5px auto 15px; }
+  .third-section p { font-size: 16px; line-height: 1.6; color: #ddd; }
+
   .social-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #1c1c2e;
-    display:flex;
-    justify-content: space-around;
-    align-items:center;
-    padding:10px 0;
-    box-shadow:0 -2px 10px rgba(0,0,0,0.4);
-    border-top:1px solid #00e5ff33;
+    position: fixed; bottom: 0; left: 0; width: 100%; background: var(--footer-background);
+    display:flex; justify-content: space-around; align-items:center; padding:15px 0;
+    box-shadow:0 -5px 15px rgba(0,0,0,0.6);
+    border-top:2px solid #00e5ff33;
     z-index:1000;
   }
   .social-bar a {
-    position: relative;
-    color:#f1f1f1;
-    font-size:26px;
+    position: relative; color:var(--text-color); font-size:30px;
     transition: transform 0.3s ease, color 0.3s ease;
   }
   .social-bar a::after {
-    content:"";
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    transform: translate(-50%,-50%);
-    opacity:0;
-    z-index:-1;
-    transition: all 0.3s ease;
+    content:""; position:absolute; top:50%; left:50%; width:75px; height:75px;
+    border-radius:50%; transform: translate(-50%,-50%); opacity:0; z-index:-1; transition: all 0.3s ease;
   }
-  .social-bar a:hover::after,
-  .social-bar a:active::after { opacity:1; }
-  .social-bar a.tiktok:hover::after,
-  .social-bar a.tiktok:active::after { background-color: #00f0ff; box-shadow:0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff; }
-  .social-bar a.instagram:hover::after,
-  .social-bar a.instagram:active::after { background-color: #00ff80; box-shadow:0 0 10px #00ff80, 0 0 20px #00ff80, 0 0 30px #00ff80; }
-  .social-bar a.facebook:hover::after,
-  .social-bar a.facebook:active::after { background-color: #a020f0; box-shadow:0 0 10px #a020f0, 0 0 20px #a020f0, 0 0 30px #a020f0; }
-  .social-bar a.telegram:hover::after,
-  .social-bar a.telegram:active::after { background-color: #00bfff; box-shadow:0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff; }
-  .social-bar a:hover,
-  .social-bar a:active { transform: scale(1.2) translateY(-3px); }
+  .social-bar a:hover::after { opacity:1; }
+  .social-bar a:hover { transform: scale(1.25) translateY(-4px); }
+
+  .social-bar a.tiktok:hover::after { background-color: var(--neon-tiktok); box-shadow:0 0 10px var(--neon-tiktok), 0 0 30px var(--neon-tiktok), 0 0 50px var(--neon-tiktok); }
+  .social-bar a.instagram:hover::after { background-color: var(--neon-instagram); box-shadow:0 0 10px var(--neon-instagram), 0 0 30px var(--neon-instagram), 0 0 50px var(--neon-instagram); }
+  .social-bar a.facebook:hover::after { background-color: var(--neon-facebook); box-shadow:0 0 10px var(--neon-facebook), 0 0 30px var(--neon-facebook), 0 0 50px var(--neon-facebook); }
+  .social-bar a.telegram:hover::after { background-color: var(--neon-telegram); box-shadow:0 0 10px var(--neon-telegram), 0 0 30px var(--neon-telegram), 0 0 50px var(--neon-telegram); }
+
+  .social-bar a.clicked { transform: translateY(-7px) scale(1.4); }
   .social-bar a.clicked::after { animation: pulse 0.8s ease-out; opacity:1; }
-  @keyframes pulse { 0%{width:0;height:0;opacity:0.9;} 50%{width:60px;height:60px;opacity:0.5;} 100%{width:100px;height:100px;opacity:0;} }
-  .social-bar a.clicked { transform: translateY(-5px) scale(1.3); }
-  .tiktok.clicked::after { background: rgba(0,0,0,0.8); box-shadow:0 0 20px #000; }
-  .instagram.clicked::after { background: rgba(0,255,128,0.8); box-shadow:0 0 20px #00ff80; }
-  .facebook.clicked::after { background: rgba(180,0,255,0.8); box-shadow:0 0 20px #a020f0; }
-  .telegram.clicked::after { background: rgba(0,191,255,0.8); box-shadow:0 0 20px #00bfff; }
+  @keyframes pulse { 0%{width:0;height:0;opacity:0.9;} 50%{width:80px;height:80px;opacity:0.5;} 100%{width:120px;height:120px;opacity:0;} }
 
-  
-  footer {
-    text-align: center;
-    color: #fff;
-    font-size: 14px;
-    margin-top: 40px;
-    padding: 15px 0;
-}
+  .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); box-shadow:0 0 20px #00f0ff; }
+  .instagram.clicked::after { background: rgba(0, 255, 128, 0.8); box-shadow:0 0 20px #00ff80; }
+  .facebook.clicked::after { background: rgba(160, 32, 240, 0.8); box-shadow:0 0 20px #a020f0; }
+  .telegram.clicked::after { background: rgba(0, 191, 255, 0.8); box-shadow:0 0 20px #00bfff; }
 
+  .copyright {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      padding: 20px 0 10px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 900;
+  }
 </style>
 </head>
 <body>
@@ -192,13 +225,16 @@
 
 <div class="social-bar">
   <a href="https://www.tiktok.com/@k50c5" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
-  <a href="https://www.instagram.com/k50c5" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.instagram.com/@k50c5" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
   <a href="https://t.me/k50c5" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
-  <a href="https://www.facebook.com/k50c5" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.facebook.com/@k50c5" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+</div>
+
+<div class="copyright">
+    © 2025 ᷂كريم ⥈ 𝙃𝘼𝙍𝘿 جميع الحقوق محفوظة.
 </div>
 
 <script>
-  
   const icons = document.querySelectorAll('.social-bar a');
   icons.forEach(icon => {
     icon.addEventListener('click', e=>{
@@ -213,7 +249,6 @@
     });
   });
 
-  
   const audioCircle = document.getElementById('audioCircle');
   const imamAudio = document.getElementById('imamAudio');
   const playIcon = audioCircle.querySelector('i');
@@ -232,11 +267,15 @@
     }
   });
 
-  
   imamAudio.onloadeddata = () => { playIcon.style.opacity = 0; };
   audioCircle.addEventListener('mouseenter', ()=>{ playIcon.style.opacity = 1; });
   audioCircle.addEventListener('mouseleave', ()=>{ if(imamAudio.paused) playIcon.style.opacity = 0; });
-
+  imamAudio.onended = () => {
+      audioCircle.classList.remove('playing');
+      playIcon.classList.remove('fa-pause');
+      playIcon.classList.add('fa-play');
+      playIcon.style.opacity = 0;
+  };
 </script>
 
 </body>
