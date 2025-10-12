@@ -6,8 +6,11 @@
 <title>᷂كريم ⥈ 𝙃𝘼𝙍𝘿</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
   :root {
       --footer-background: #1A1C20;
       --text-color: #FAFAFA;
@@ -17,27 +20,43 @@
       --neon-telegram: #00bfff;
       --neon-facebook: #a020f0;
       --accent-color: #00ff80; 
+      --highlight-yellow: #FFD700; 
   }
 
   * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; margin:0; padding:0; }
   body { 
-      background: linear-gradient(to bottom, #141e30, #243b55); 
+      background: #0f2027;
       color: #fff; 
       padding-bottom: 140px; 
       overflow-x: hidden; 
+  }
+
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); 
+  }
+  
+  .content-wrapper {
+      position: relative;
+      z-index: 10;
   }
 
   .fade-in-element { opacity: 0; animation: fadeIn 1s ease forwards; }
   .intro { animation-delay: 0.2s; }
   .imam-section { animation-delay: 0.5s; }
   .third-section { animation-delay: 0.8s; }
+  .copyright { animation-delay: 1.1s; } 
 
   @keyframes fadeIn {
     from {opacity:0; transform: translateY(20px);}
     to {opacity:1; transform: translateY(0);}
   }
-
-
+  
   .intro {
     background: var(--intro-color);
     width: 350px;
@@ -45,9 +64,9 @@
     border-radius: 15px;
     text-align: center;
     padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 15px var(--intro-color); 
   }
-  .intro h1 { font-size: 24px; margin-bottom: 10px; font-weight: 900; }
+  .intro h1 { font-size: 24px; margin-bottom: 10px; font-weight: 900; color: var(--text-color); }
   .intro p { font-size: 17px; color: #f3caca; }
 
 
@@ -87,7 +106,7 @@
       width: 95%; 
       border-left: 4px solid var(--accent-color);
   }
-  .quote-box .bold { font-weight: 900; font-size: 18px; }
+  .quote-box .bold { font-weight: 900; font-size: 18px; color: #fff; }
   .quote-box .normal { font-size: 15px; color: #bbb; margin-top: 8px; }
 
 
@@ -107,17 +126,22 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 2px solid #333;
+    border: 3px solid #333; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
+    outline: none;
   }
   .audio-circle i { font-size: 40px; color: #fff; } 
   .audio-circle.playing { 
     border-color: var(--accent-color);
     transform: scale(1.1) rotate(5deg); 
-    box-shadow: 0 0 30px var(--accent-color), 0 0 50px rgba(0,255,128,0.5); 
+    box-shadow: 0 0 20px var(--accent-color), 0 0 40px rgba(0,255,128,0.5), inset 0 0 15px var(--accent-color);
     animation: rotatePulse 1s infinite alternate;
+  }
+  @keyframes rotatePulse { 
+      from { transform: scale(1.1) rotate(-2deg); } 
+      to { transform: scale(1.1) rotate(2deg); }
   }
   .audio-container p { font-size: 16px; color: #fff; font-weight: 900; } 
 
@@ -138,7 +162,7 @@
       width: 250px; 
       border-radius: 15px; 
       margin-bottom: 20px; 
-      border: 2px solid #00ff00; 
+      border: 2px solid #515151; 
       transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
   .third-section img:hover {
@@ -146,41 +170,61 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--neon-telegram);
   }
 
-  .third-section h2 { color: #00ff00; font-size: 24px; margin-bottom: 10px; font-weight: 900; }
-  .third-section hr { border: 1.5px solid yellow; width: 100px; margin: 5px auto 15px; }
+  .third-section h2 { color: var(--highlight-yellow); font-size: 24px; margin-bottom: 10px; font-weight: 900; }
+  .third-section hr { border: 1.5px solid var(--neon-telegram); width: 100px; margin: 5px auto 15px; } 
   .third-section p { font-size: 16px; line-height: 1.6; color: #ddd; }
 
   .social-bar {
     position: fixed; bottom: 0; left: 0; width: 100%; background: var(--footer-background);
     display:flex; justify-content: space-around; align-items:center; padding:15px 0;
-    box-shadow:0 -5px 15px rgba(0,0,0,0.6);
-    border-top:2px solid #00e5ff33;
+    box-shadow:0 -5px 15px rgba(0,0,0,0.8);
+    border-top:2px solid var(--accent-color); 
     z-index:1000;
   }
   .social-bar a {
     position: relative; color:var(--text-color); font-size:30px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; 
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
   }
+  .social-bar a:hover { 
+      transform: scale(1.25) translateY(-4px); 
+      text-shadow: 0 0 10px #fff, 0 0 20px var(--accent-color);
+  }
+  
+  .social-bar a:hover::after,
   .social-bar a::after {
-    content:""; position:absolute; top:50%; left:50%; width:75px; height:75px;
-    border-radius:50%; transform: translate(-50%,-50%); opacity:0; z-index:-1; transition: all 0.3s ease;
+    content: none; 
   }
-  .social-bar a:hover::after { opacity:1; }
-  .social-bar a:hover { transform: scale(1.25) translateY(-4px); }
 
-  .social-bar a.tiktok:hover::after { background-color: var(--neon-tiktok); box-shadow:0 0 10px var(--neon-tiktok), 0 0 30px var(--neon-tiktok), 0 0 50px var(--neon-tiktok); }
-  .social-bar a.instagram:hover::after { background-color: var(--neon-instagram); box-shadow:0 0 10px var(--neon-instagram), 0 0 30px var(--neon-instagram), 0 0 50px var(--neon-instagram); }
-  .social-bar a.facebook:hover::after { background-color: var(--neon-facebook); box-shadow:0 0 10px var(--neon-facebook), 0 0 30px var(--neon-facebook), 0 0 50px var(--neon-facebook); }
-  .social-bar a.telegram:hover::after { background-color: var(--neon-telegram); box-shadow:0 0 10px var(--neon-telegram), 0 0 30px var(--neon-telegram), 0 0 50px var(--neon-telegram); }
-
+  .social-bar a.tiktok:hover { color: var(--neon-tiktok); }
+  .social-bar a.instagram:hover { color: var(--neon-instagram); }
+  .social-bar a.facebook:hover { color: var(--neon-facebook); }
+  .social-bar a.telegram:hover { color: var(--neon-telegram); }
+  
   .social-bar a.clicked { transform: translateY(-7px) scale(1.4); }
-  .social-bar a.clicked::after { animation: pulse 0.8s ease-out; opacity:1; }
+  .social-bar a.clicked::after { 
+    content:""; 
+    position:absolute; 
+    top:50%; 
+    left:50%; 
+    width:75px; 
+    height:75px;
+    border-radius:50%; 
+    transform: translate(-50%,-50%); 
+    opacity:0; 
+    z-index:-1; 
+    transition: all 0.3s ease;
+    animation: pulse 0.8s ease-out; 
+    opacity:1; 
+  }
   @keyframes pulse { 0%{width:0;height:0;opacity:0.9;} 50%{width:80px;height:80px;opacity:0.5;} 100%{width:120px;height:120px;opacity:0;} }
+
 
   .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); box-shadow:0 0 20px #00f0ff; }
   .instagram.clicked::after { background: rgba(0, 255, 128, 0.8); box-shadow:0 0 20px #00ff80; }
   .facebook.clicked::after { background: rgba(160, 32, 240, 0.8); box-shadow:0 0 20px #a020f0; }
   .telegram.clicked::after { background: rgba(0, 191, 255, 0.8); box-shadow:0 0 20px #00bfff; }
+
 
   .copyright {
       text-align: center;
@@ -195,46 +239,97 @@
 </head>
 <body>
 
-<div class="intro fade-in-element">
-  <h1>آياتيك الزمان بمثلي مرتين</h1>
-  <p>خسئت أنت وزمانك</p>
-</div>
+<div id="particles-js"></div> 
 
-<div class="imam-section fade-in-element">
-  <img class="main-img" src="https://d.top4top.io/p_3570td8lt1.jpg" alt="᷂كريم ⥈ 𝙃𝘼𝙍𝘿">
-  <div class="quote-box">
-    <div class="bold">العقلُ صديقٌ مُخلص، والجهلُ عدوٌ فاضح.</div>
-    <div class="normal">- الإمام علي بن أبي طالب (عليه السلام)</div>
+<div class="content-wrapper">
+
+  <div class="intro fade-in-element">
+    <h1>آياتيك الزمان بمثلي مرتين</h1>
+    <p>خسئت أنت وزمانك</p>
   </div>
   
-  <div class="audio-container">
-    <div class="audio-circle" id="audioCircle">
-      <i class="fas fa-play" style="color:rgba(255,255,255,0.8); text-shadow: 0 0 5px #000;"></i>
+  <div class="imam-section fade-in-element">
+    <img class="main-img" src="https://d.top4top.io/p_3570td8lt1.jpg" alt="᷂كريم ⥈ 𝙃𝘼𝙍𝘿">
+    <div class="quote-box">
+      <div class="bold">العقلُ صديقٌ مُخلص، والجهلُ عدوٌ فاضح.</div>
+      <div class="normal">- الإمام علي بن أبي طالب (عليه السلام)</div>
     </div>
-    <p>يحيى البنداوي</p>
+    
+    <div class="audio-container">
+      <div class="audio-circle" id="audioCircle" tabindex="0">
+        <i class="fas fa-play" style="color:rgba(255,255,255,0.8); text-shadow: 0 0 5px #000;"></i>
+      </div>
+      <p>يحيى البنداوي</p>
+    </div>
+    <audio id="imamAudio" src="krem.mp3"></audio>
   </div>
-  <audio id="imamAudio" src="krem.mp3"></audio>
-</div>
+  
+  <div class="third-section fade-in-element">
+    <img src="https://j.top4top.io/p_3463rlywc1.jpg" alt="الإمام علي">
+    <h2>علي بن أبي طالب عليه السلام</h2>
+    <hr>
+    <p>الإمام علي بن أبي طالب، رمز العدالة والحكمة، فارس الإسلام وباب مدينة العلم، جمع بين الشجاعة والبلاغة والزهد، فكان قدوة خالدة في الإيمان والحق. كان علي (عليه السلام) من أقرب الناس إلى النبي محمد (صلى الله عليه وسلم)، وأول من آمن به من الصبيان. شهد معه كل الغزوات باستثناء غزوة تبوك، وكان يُعرف ببطولته وشجاعته التي لا تُضاهى في المعارك. لم تقتصر فضائله على الشجاعة، بل كان يتمتع بعلم غزير وحكمة بالغة، حيث قال عنه النبي (ص): "أنا مدينة العلم وعلي بابها".</p>
+  </div>
 
-<div class="third-section fade-in-element">
-  <img src="https://j.top4top.io/p_3463rlywc1.jpg" alt="الإمام علي">
-  <h2>علي بن أبي طالب عليه السلام</h2>
-  <hr>
-  <p>الإمام علي بن أبي طالب، رمز العدالة والحكمة، فارس الإسلام وباب مدينة العلم، جمع بين الشجاعة والبلاغة والزهد، فكان قدوة خالدة في الإيمان والحق. كان علي (عليه السلام) من أقرب الناس إلى النبي محمد (صلى الله عليه وسلم)، وأول من آمن به من الصبيان. شهد معه كل الغزوات باستثناء غزوة تبوك، وكان يُعرف ببطولته وشجاعته التي لا تُضاهى في المعارك. لم تقتصر فضائله على الشجاعة، بل كان يتمتع بعلم غزير وحكمة بالغة، حيث قال عنه النبي (ص): "أنا مدينة العلم وعلي بابها".</p>
-</div>
+  <div class="copyright fade-in-element">
+      © 2025 ᷂كريم ⥈ 𝙃𝘼𝙍𝘿 جميع الحقوق محفوظة.
+  </div>
 
-<div class="social-bar">
+</div> <div class="social-bar">
   <a href="https://www.tiktok.com/@k50c5" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
   <a href="https://www.instagram.com/@k50c5" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
   <a href="https://t.me/k50c5" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
   <a href="https://www.facebook.com/@k50c5" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
 </div>
 
-<div class="copyright">
-    © 2025 ᷂كريم ⥈ 𝙃𝘼𝙍𝘿 جميع الحقوق محفوظة.
-</div>
-
 <script>
+
+  particlesJS('particles-js', {
+    "particles": {
+      "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#00ff80" }, 
+      "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+      "opacity": { "value": 0.5, "random": false, "anim": { "enable": false } },
+      "size": { "value": 3, "random": true, "anim": { "enable": false } },
+      "line_linked": {
+        "enable": true, "distance": 150, "color": "#2c5364", 
+        "opacity": 0.4, "width": 1
+      },
+      "move": {
+        "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false,
+        "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" }, 
+        "onclick": { "enable": true, "mode": "push" }, 
+        "resize": true
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+        "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+        "repulse": { "distance": 200, "duration": 0.4 },
+        "push": { "particles_nb": 4 },
+        "remove": { "particles_nb": 2 }
+      }
+    },
+    "retina_detect": true
+  });
+
+  $(window).scroll(function() {
+      var scrollPos = $(this).scrollTop();
+
+      $('#particles-js').css({
+          'transform': 'translateY(' + (scrollPos * 0.3) + 'px)'
+      });
+
+      $('.content-wrapper').css({
+          'transform': 'translateY(' + (-scrollPos * 0.05) + 'px)'
+      });
+  });
+
   const icons = document.querySelectorAll('.social-bar a');
   icons.forEach(icon => {
     icon.addEventListener('click', e=>{
@@ -268,13 +363,20 @@
   });
 
   imamAudio.onloadeddata = () => { playIcon.style.opacity = 0; };
+
   audioCircle.addEventListener('mouseenter', ()=>{ playIcon.style.opacity = 1; });
-  audioCircle.addEventListener('mouseleave', ()=>{ if(imamAudio.paused) playIcon.style.opacity = 0; });
+
+  audioCircle.addEventListener('mouseleave', ()=>{ 
+    if(imamAudio.paused) { 
+      playIcon.style.opacity = 0; 
+    }
+  });
+
   imamAudio.onended = () => {
       audioCircle.classList.remove('playing');
       playIcon.classList.remove('fa-pause');
       playIcon.classList.add('fa-play');
-      playIcon.style.opacity = 0;
+      playIcon.style.opacity = 0; 
   };
 </script>
 
