@@ -42,13 +42,14 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     outline: none;
+    text-decoration: none !important; /* إلغاء أي خطوط تحت النصوص والروابط */
   }
 
   body { 
       background: var(--bg-gradient);
       background-attachment: fixed;
       color: var(--text-main); 
-      padding-bottom: 120px; 
+      padding-bottom: 160px; 
       overflow-x: hidden; 
   }
 
@@ -56,7 +57,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(90deg, var(--accent-violet), var(--accent-pink), var(--accent-blue));
     width: 0%;
     z-index: 10000;
@@ -88,7 +89,7 @@
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 650px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 16px;
   }
@@ -110,28 +111,28 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    margin: 35px auto 25px; 
-    border-radius: 24px;
+    margin: 70px auto 25px; 
+    border-radius: 28px;
     text-align: center;
-    padding: 30px 18px;
+    padding: 35px 22px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
   }
 
   .header-card h1 { 
-    font-size: clamp(22px, 6vw, 30px); 
+    font-size: clamp(23px, 7vw, 38px); 
     font-weight: 900; 
     color: #ffffff;
     letter-spacing: -0.5px;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .header-card p { 
-    font-size: clamp(16px, 4.5vw, 20px); 
+    font-size: clamp(16px, 5.5vw, 26px); 
     color: var(--accent-red); 
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.5px;
     text-shadow: 0 0 15px rgba(255, 51, 75, 0.6);
   }
@@ -142,20 +143,20 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 28px;
+    border-radius: 32px;
     text-align: center;
-    padding: 25px 20px;
-    margin-bottom: 25px;
+    padding: 32px 24px;
+    margin-bottom: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
   .profile-img-wrapper {
     position: relative;
-    width: min(190px, 55vw); 
-    height: min(190px, 55vw);
-    margin: 0 auto 20px;
+    width: min(360px, 70vw); 
+    height: min(320px, 70vw); 
+    margin: 0 auto 24px;
     cursor: pointer;
-    border-radius: 24px;
+    border-radius: 30px;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
   }
@@ -163,12 +164,12 @@
   .profile-img-wrapper::before {
     content: '';
     position: absolute;
-    inset: -4px;
-    border-radius: 28px;
+    inset: -5px;
+    border-radius: 34px;
     background: linear-gradient(45deg, var(--accent-violet), var(--accent-pink), var(--accent-blue));
     z-index: -1;
     opacity: 0.25;
-    filter: blur(8px);
+    filter: blur(10px);
     transition: opacity 0.6s ease, filter 0.6s ease;
   }
 
@@ -178,13 +179,13 @@
 
   .profile-img-wrapper:hover::before {
     opacity: 0.7;
-    filter: blur(12px);
+    filter: blur(14px);
   }
 
   .main-img { 
       width: 100%;
       height: 100%;
-      border-radius: 24px; 
+      border-radius: 28px; 
       object-fit: cover;
       border: 2px solid rgba(255, 255, 255, 0.15);
   }
@@ -192,31 +193,31 @@
   /* Quote Box */
   .quote-box { 
       background: rgba(10, 5, 20, 0.6);
-      border-radius: 18px; 
-      padding: 16px; 
-      margin: 20px auto;
-      border: 1px solid rgba(189, 0, 255, 0.2);
+      border-radius: 22px; 
+      padding: 22px; 
+      margin: 24px auto;
+      border: 1px solid rgba(189, 0, 255, 0.25);
   }
 
   .quote-box .bold { 
-    font-weight: 700; 
-    font-size: clamp(15px, 4vw, 18px); 
+    font-weight: 800; 
+    font-size: clamp(18px, 4.8vw, 22px); 
     color: #ffffff; 
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .quote-box .normal { 
-    font-size: clamp(12px, 3.2vw, 14px); 
+    font-size: clamp(15px, 3.8vw, 17px); 
     color: var(--accent-blue); 
-    margin-top: 6px; 
+    margin-top: 10px; 
     font-weight: 700;
   }
 
-  /* --- Audio Player Wrapper (Larger Size) --- */
+  /* Audio Player Wrapper */
   .audio-player-wrapper {
     background: rgba(15, 8, 25, 0.85);
-    border-radius: 50px;
-    padding: 16px 30px;
+    border-radius: 60px;
+    padding: 18px 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -228,8 +229,8 @@
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
     position: relative;
     will-change: transform;
-    width: 90%;
-    max-width: 380px;
+    width: 95%;
+    max-width: 420px;
   }
 
   .audio-player-wrapper.playing {
@@ -248,31 +249,31 @@
   }
 
   .audio-btn {
-    width: 55px;
-    height: 55px;
-    min-width: 55px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 22px;
+    font-size: 24px;
     box-shadow: 0 0 20px rgba(189, 0, 255, 0.6);
   }
 
   .visualizer {
     display: flex;
     align-items: center;
-    gap: 4px;
-    height: 28px;
+    gap: 5px;
+    height: 32px;
   }
 
   .bar {
-    width: 4px;
-    height: 8px;
+    width: 5px;
+    height: 10px;
     background: var(--text-muted);
-    border-radius: 3px;
+    border-radius: 4px;
     transition: height 0.2s ease, background-color 0.3s ease;
   }
 
@@ -287,8 +288,8 @@
   .playing .bar:nth-child(5) { animation-delay: 0.5s; }
 
   @keyframes bounce {
-    0% { height: 6px; background: var(--accent-blue); }
-    100% { height: 28px; background: var(--accent-pink); }
+    0% { height: 8px; background: var(--accent-blue); }
+    100% { height: 32px; background: var(--accent-pink); }
   }
 
   /* Enhanced Ronaldo Section */
@@ -302,15 +303,15 @@
   .cr-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background: linear-gradient(90deg, #ffbe0b, #ff9f00);
     color: #000;
     font-weight: 900;
-    font-size: 11px;
-    padding: 4px 14px;
+    font-size: 13px;
+    padding: 6px 18px;
     border-radius: 20px;
     letter-spacing: 1px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     box-shadow: 0 0 15px rgba(255, 190, 11, 0.4);
   }
 
@@ -319,7 +320,7 @@
   }
 
   .ronaldo-title {
-    font-size: clamp(22px, 5.5vw, 28px);
+    font-size: clamp(26px, 6.5vw, 34px); 
     font-weight: 900;
     color: #ffffff;
     margin-top: 5px;
@@ -332,24 +333,24 @@
   }
 
   .ronaldo-subtitle {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--accent-blue);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     font-weight: 700;
   }
 
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 20px 0;
+    gap: 12px;
+    margin: 22px 0;
   }
 
   .stat-item {
     background: rgba(255, 190, 11, 0.05);
     border: 1px solid rgba(255, 190, 11, 0.15);
-    padding: 12px 6px;
-    border-radius: 16px;
+    padding: 14px 8px;
+    border-radius: 18px;
     cursor: pointer;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
     will-change: transform;
@@ -364,9 +365,9 @@
   }
 
   .stat-icon {
-    width: 36px;
-    height: 36px;
-    margin: 0 auto 6px;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 8px;
     border-radius: 50%;
     background: rgba(255, 190, 11, 0.1);
     display: flex;
@@ -375,7 +376,7 @@
   }
 
   .stat-icon i {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--accent-gold);
     transition: transform 0.4s ease;
   }
@@ -385,75 +386,83 @@
   }
 
   .stat-item h3 {
-    font-size: clamp(16px, 4vw, 20px);
+    font-size: clamp(18px, 4.5vw, 22px); 
     color: #fff;
     font-weight: 900;
   }
 
   .stat-item p {
-    font-size: clamp(10px, 2.8vw, 12px);
+    font-size: clamp(12px, 3.2vw, 14px);
     color: var(--text-muted);
   }
 
   .ronaldo-text { 
-    font-size: clamp(13px, 3.4vw, 15px); 
-    line-height: 1.8; 
-    color: #c9c3d8; 
+    font-size: clamp(15px, 4vw, 18px); 
+    line-height: 1.85; 
+    color: #d1cbdc; 
     text-align: justify;
     text-justify: inter-word;
-    margin-top: 15px;
+    margin-top: 18px;
   }
 
-  /* --- Social Navigation with Click Animations --- */
+  /* Social Navigation */
   .social-bar-container {
     position: fixed;
-    bottom: 20px;
+    bottom: 22px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    width: 90%;
-    max-width: 380px;
+    width: 92%;
+    max-width: 460px;
   }
 
   .social-bar {
-    background: rgba(18, 8, 30, 0.9);
+    background: rgba(18, 8, 30, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(189, 0, 255, 0.25);
-    border-radius: 50px;
+    border: 1px solid rgba(189, 0, 255, 0.3);
+    border-radius: 60px;
     display: flex; 
     justify-content: space-around; 
     align-items: center; 
-    padding: 8px 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    padding: 12px 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(189, 0, 255, 0.2);
   }
 
   .social-bar a {
     position: relative;
-    color: var(--text-muted); 
-    font-size: 22px;
-    transition: transform 0.2s ease, color 0.2s ease;
-    width: 44px;
-    height: 44px;
+    color: var(--text-main); 
+    font-size: 28px; 
+    text-decoration: none !important; /* تأكيد إلغاء الخط السفلي */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease, background 0.3s ease;
+    width: 62px; 
+    height: 62px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  .social-bar a:hover { 
-      transform: translateY(-3px);
+  .social-bar a i {
+    text-decoration: none !important;
+    line-height: 1;
+    display: block;
+  }
+
+  .social-bar a:hover,
+  .social-bar a:active { 
+      transform: translateY(-5px) scale(1.08);
       color: #fff;
   }
 
-  .social-bar a.tiktok:hover { background: #00f2ea; color: #000; }
-  .social-bar a.instagram:hover { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); color: #fff; }
-  .social-bar a.telegram:hover { background: #0088cc; color: #fff; }
-  .social-bar a.facebook:hover { background: #1877f2; color: #fff; }
+  .social-bar a.tiktok:hover, .social-bar a.tiktok:active { background: #00f2ea; color: #000; box-shadow: 0 0 15px #00f2ea; }
+  .social-bar a.instagram:hover, .social-bar a.instagram:active { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); color: #fff; box-shadow: 0 0 15px #d62976; }
+  .social-bar a.telegram:hover, .social-bar a.telegram:active { background: #0088cc; color: #fff; box-shadow: 0 0 15px #0088cc; }
+  .social-bar a.facebook:hover, .social-bar a.facebook:active { background: #1877f2; color: #fff; box-shadow: 0 0 15px #1877f2; }
 
-  /* Click Animation Class & Pulse Wave Effect */
   .social-bar a.clicked { 
-    transform: translateY(-7px) scale(1.3) !important; 
+    transform: translateY(-8px) scale(1.25) !important; 
   }
 
   .social-bar a.clicked::after { 
@@ -461,8 +470,8 @@
     position: absolute; 
     top: 50%; 
     left: 50%; 
-    width: 75px; 
-    height: 75px;
+    width: 85px; 
+    height: 85px;
     border-radius: 50%; 
     transform: translate(-50%, -50%); 
     z-index: -1; 
@@ -471,8 +480,8 @@
 
   @keyframes pulse { 
     0% { width: 0; height: 0; opacity: 0.9; } 
-    50% { width: 80px; height: 80px; opacity: 0.5; } 
-    100% { width: 120px; height: 120px; opacity: 0; } 
+    50% { width: 90px; height: 90px; opacity: 0.5; } 
+    100% { width: 130px; height: 130px; opacity: 0; } 
   }
 
   .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); box-shadow: 0 0 20px #00f0ff; }
@@ -483,8 +492,8 @@
   .copyright {
       text-align: center;
       color: var(--text-muted);
-      font-size: 12px;
-      margin-top: 20px;
+      font-size: 14px;
+      margin-top: 25px;
   }
 </style>
 </head>
@@ -521,8 +530,8 @@
         <i class="fas fa-play"></i>
       </div>
       <div style="text-align: right; flex-grow: 1;">
-        <p style="font-size: 16px; font-weight: 900; color: #fff;">أسامة ناجي</p>
-        <p style="font-size: 12px; color: var(--text-muted); font-weight: 700;">صوتيات مميزة</p>
+        <p style="font-size: 18px; font-weight: 900; color: #fff;">أسامة ناجي</p>
+        <p style="font-size: 13px; color: var(--text-muted); font-weight: 700;">@ii_oi</p>
       </div>
       <div class="visualizer" id="visualizer">
         <div class="bar"></div>
@@ -575,7 +584,7 @@
 
     <!-- Body Text -->
     <p class="ronaldo-text">
-كريستيانو رونالدو، أسطورة كرة القدم الحديثة، رمز الإصرار والطموح، نجم البرتغال وواجهة المجد الكروي، جمع بين القوة والمهارة والانضباط، فكان مثالاً خالداً في السعي نحو القمة. كان كريستيانو رونالدو من أبرز اللاعبين في تاريخ اللعبة، وبدأ مسيرته شاباً طموحاً حتى أصبح أحد أعظم من لمس الكرة. تألق في أكبر الأندية الأوروبية، وحقق العديد من البطولات والإنجازات الفردية والجماعية، وكان يُعرف بعزيمته التي لا تنكسر وروحه التنافسية العالية داخل الملعب. ولم تقتصر مكانته على الأهداف والمهارات، بل كان يتمتع بعقلية احترافية فريدة، حيث أصبح مصدر إلهام لملايين الشباب حول العالم، ودليلاً على أن العمل الجاد يصنع المستحيل".
+كريستيانو رونالدو، أسطورة كرة القدم الحديثة، رمز الإصرار والطموح، نجم البرتغال وواجهة المجد الكروي، جمع بين القوة والمهارة والانضباط، فكان مثالاً خالداً في السعي نحو القمة. كان كريستيانو رونالدو من أبرز اللاعبين في تاريخ اللعبة، وبدأ مسيرته شاباً طموحاً حتى أصبح أحد أعظم من لمس الكرة. تألق في أكبر الأندية الأوروبية، وحقق العديد من البطولات والإنجازات الفردية والجماعية، وكان يُعرف بعزيمته التي لا تنكسر وروحه التنافسية العالية داخل الملعب. ولم تقتصر مكانته على الأهداف والمهارات، بل كان يتمتع بعقلية احترافية فريدة، حيث أصبح مصدر إلهام لملايين الشباب حول العالم، ودليلاً على أن العمل الجاد يصنع المستحيل.
     </p>
 
   </div>
