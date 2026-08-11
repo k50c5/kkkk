@@ -26,6 +26,11 @@
       
       --text-main: #ffffff;
       --text-muted: #9a92ab;
+
+      --neon-tiktok: #00f0ff;
+      --neon-instagram: #e664c8;
+      --neon-telegram: #00bfff;
+      --neon-facebook: #a020f0;
   }
 
   * { 
@@ -207,21 +212,24 @@
     font-weight: 700;
   }
 
-  /* Audio Player Wrapper */
+  /* --- Audio Player Wrapper (Larger Size) --- */
   .audio-player-wrapper {
     background: rgba(15, 8, 25, 0.85);
-    border-radius: 40px;
-    padding: 10px 22px;
+    border-radius: 50px;
+    padding: 16px 30px;
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-    border: 2px solid rgba(189, 0, 255, 0.3);
-    margin-top: 5px;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid rgba(189, 0, 255, 0.4);
+    margin-top: 10px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
     position: relative;
     will-change: transform;
+    width: 90%;
+    max-width: 380px;
   }
 
   .audio-player-wrapper.playing {
@@ -231,7 +239,7 @@
                 linear-gradient(90deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bf7, #7a00ff, #ff00c8, #ff0000) border-box;
     background-size: 200% 100%;
     animation: rainbowBorder 3s linear infinite;
-    box-shadow: 0 12px 25px rgba(189, 0, 255, 0.4);
+    box-shadow: 0 15px 30px rgba(189, 0, 255, 0.5);
   }
 
   @keyframes rainbowBorder {
@@ -240,30 +248,31 @@
   }
 
   .audio-btn {
-    width: 42px;
-    height: 42px;
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 16px;
-    box-shadow: 0 0 15px rgba(189, 0, 255, 0.5);
+    font-size: 22px;
+    box-shadow: 0 0 20px rgba(189, 0, 255, 0.6);
   }
 
   .visualizer {
     display: flex;
     align-items: center;
-    gap: 3px;
-    height: 20px;
+    gap: 4px;
+    height: 28px;
   }
 
   .bar {
-    width: 3px;
-    height: 5px;
+    width: 4px;
+    height: 8px;
     background: var(--text-muted);
-    border-radius: 2px;
+    border-radius: 3px;
     transition: height 0.2s ease, background-color 0.3s ease;
   }
 
@@ -278,28 +287,55 @@
   .playing .bar:nth-child(5) { animation-delay: 0.5s; }
 
   @keyframes bounce {
-    0% { height: 4px; background: var(--accent-blue); }
-    100% { height: 20px; background: var(--accent-pink); }
+    0% { height: 6px; background: var(--accent-blue); }
+    100% { height: 28px; background: var(--accent-pink); }
   }
 
-  /* Ronaldo Section */
+  /* Enhanced Ronaldo Section */
   .ronaldo-card {
-    border-top: 1px solid rgba(0, 210, 255, 0.2);
+    position: relative;
+    background: linear-gradient(135deg, rgba(20, 10, 35, 0.7) 0%, rgba(10, 5, 20, 0.85) 100%);
+    border: 1px solid rgba(255, 190, 11, 0.25) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 190, 11, 0.08);
+  }
+
+  .cr-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(90deg, #ffbe0b, #ff9f00);
+    color: #000;
+    font-weight: 900;
+    font-size: 11px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(255, 190, 11, 0.4);
   }
 
   .ronaldo-img-wrapper .main-img {
     object-position: top center; 
   }
 
-  .ronaldo-card h2 { 
-    color: var(--accent-gold); 
-    font-size: clamp(20px, 5vw, 24px); 
-    margin-bottom: 12px; 
-    font-weight: 900; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .ronaldo-title {
+    font-size: clamp(22px, 5.5vw, 28px);
+    font-weight: 900;
+    color: #ffffff;
+    margin-top: 5px;
+  }
+
+  .ronaldo-title span {
+    background: linear-gradient(90deg, #ffffff 0%, #ffbe0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .ronaldo-subtitle {
+    font-size: 13px;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    font-weight: 700;
   }
 
   .stats-grid {
@@ -309,7 +345,6 @@
     margin: 20px 0;
   }
 
-  /* إضافة حركة الارتفاع للمربعات وسلاسة الرجوع */
   .stat-item {
     background: rgba(255, 190, 11, 0.05);
     border: 1px solid rgba(255, 190, 11, 0.15);
@@ -328,14 +363,24 @@
     box-shadow: 0 10px 20px rgba(255, 190, 11, 0.2);
   }
 
-  .stat-item i {
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    background: rgba(255, 190, 11, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stat-icon i {
     font-size: 16px;
     color: var(--accent-gold);
-    margin-bottom: 4px;
     transition: transform 0.4s ease;
   }
 
-  .stat-item:hover i {
+  .stat-item:hover .stat-icon i {
     transform: scale(1.15);
   }
 
@@ -351,14 +396,15 @@
   }
 
   .ronaldo-text { 
-    font-size: clamp(13px, 3.5vw, 15px); 
-    line-height: 1.7; 
-    color: #d1cbe0; 
+    font-size: clamp(13px, 3.4vw, 15px); 
+    line-height: 1.8; 
+    color: #c9c3d8; 
     text-align: justify;
     text-justify: inter-word;
+    margin-top: 15px;
   }
 
-  /* Social Navigation */
+  /* --- Social Navigation with Click Animations --- */
   .social-bar-container {
     position: fixed;
     bottom: 20px;
@@ -383,9 +429,10 @@
   }
 
   .social-bar a {
+    position: relative;
     color: var(--text-muted); 
-    font-size: 20px;
-    transition: all 0.3s ease;
+    font-size: 22px;
+    transition: transform 0.2s ease, color 0.2s ease;
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -403,6 +450,35 @@
   .social-bar a.instagram:hover { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); color: #fff; }
   .social-bar a.telegram:hover { background: #0088cc; color: #fff; }
   .social-bar a.facebook:hover { background: #1877f2; color: #fff; }
+
+  /* Click Animation Class & Pulse Wave Effect */
+  .social-bar a.clicked { 
+    transform: translateY(-7px) scale(1.3) !important; 
+  }
+
+  .social-bar a.clicked::after { 
+    content: ""; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 75px; 
+    height: 75px;
+    border-radius: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: -1; 
+    animation: pulse 0.8s ease-out forwards; 
+  }
+
+  @keyframes pulse { 
+    0% { width: 0; height: 0; opacity: 0.9; } 
+    50% { width: 80px; height: 80px; opacity: 0.5; } 
+    100% { width: 120px; height: 120px; opacity: 0; } 
+  }
+
+  .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); box-shadow: 0 0 20px #00f0ff; }
+  .instagram.clicked::after { background: rgba(230, 100, 200, 0.8); box-shadow: 0 0 20px rgba(230, 100, 200, 0.8); }
+  .facebook.clicked::after { background: rgba(24, 119, 242, 0.8); box-shadow: 0 0 20px #1877f2; }
+  .telegram.clicked::after { background: rgba(0, 136, 204, 0.8); box-shadow: 0 0 20px #0088cc; }
 
   .copyright {
       text-align: center;
@@ -439,13 +515,14 @@
       <div class="normal">- الإمام علي بن أبي طالب (عليه السلام)</div>
     </div>
     
+    <!-- Large Audio Player -->
     <div class="audio-player-wrapper" id="audioContainer">
       <div class="audio-btn" id="playBtn">
         <i class="fas fa-play"></i>
       </div>
-      <div style="text-align: right;">
-        <p style="font-size: 13px; font-weight: 700; color: #fff;">أسامة ناجي</p>
-        <p style="font-size: 10px; color: var(--text-muted);">صوتيات مميزة</p>
+      <div style="text-align: right; flex-grow: 1;">
+        <p style="font-size: 16px; font-weight: 900; color: #fff;">أسامة ناجي</p>
+        <p style="font-size: 12px; color: var(--text-muted); font-weight: 700;">صوتيات مميزة</p>
       </div>
       <div class="visualizer" id="visualizer">
         <div class="bar"></div>
@@ -460,33 +537,47 @@
   
   <!-- Cristiano Ronaldo Section -->
   <div class="glass-card ronaldo-card fade-in-element">
+    
+    <!-- Header Badge -->
+    <div class="cr-badge">
+      <i class="fas fa-crown"></i> CR7 · THE GOAT
+    </div>
+
+    <!-- Image Frame -->
     <div class="profile-img-wrapper ronaldo-img-wrapper">
       <img class="main-img" src="cr.jpg" alt="كريستيانو رونالدو">
     </div>
     
-    <h2><i class="fas fa-trophy"></i> كريستيانو رونالدو</h2>
+    <!-- Title -->
+    <h2 class="ronaldo-title">
+      <span>كريستيانو رونالدو</span>
+    </h2>
+    <p class="ronaldo-subtitle">رمز الشغف والإرادة الحديدية</p>
 
+    <!-- Animated Stats Grid -->
     <div class="stats-grid">
       <div class="stat-item">
-        <i class="fas fa-futbol"></i>
-        <h3>800+</h3>
-        <p>أهداف مسجلة</p>
+        <div class="stat-icon"><i class="fas fa-futbol"></i></div>
+        <h3>+850</h3>
+        <p>هدف رسمي</p>
       </div>
       <div class="stat-item">
-        <i class="fas fa-award"></i>
+        <div class="stat-icon"><i class="fas fa-trophy"></i></div>
         <h3>5x</h3>
         <p>الكرة الذهبية</p>
       </div>
       <div class="stat-item">
-        <i class="fas fa-star"></i>
+        <div class="stat-icon"><i class="fas fa-star"></i></div>
         <h3>5x</h3>
         <p>دوري الأبطال</p>
       </div>
     </div>
 
+    <!-- Body Text -->
     <p class="ronaldo-text">
-      كريستيانو رونالدو، أسطورة كرة القدم الحديثة ورمز الإصرار الشامل. بدأ مسيرته بشغف لا ينطفئ حتى اعتلى عرش الكرة العالمية. جمع بين الانضباط البدني والذكاء التكتيكي، ليصبح نموذجاً حياً يُقتدى به في تحويل الأحلام إلى واقع ملموس بدعم الإرادة والعمل المستمر.
+كريستيانو رونالدو، أسطورة كرة القدم الحديثة، رمز الإصرار والطموح، نجم البرتغال وواجهة المجد الكروي، جمع بين القوة والمهارة والانضباط، فكان مثالاً خالداً في السعي نحو القمة. كان كريستيانو رونالدو من أبرز اللاعبين في تاريخ اللعبة، وبدأ مسيرته شاباً طموحاً حتى أصبح أحد أعظم من لمس الكرة. تألق في أكبر الأندية الأوروبية، وحقق العديد من البطولات والإنجازات الفردية والجماعية، وكان يُعرف بعزيمته التي لا تنكسر وروحه التنافسية العالية داخل الملعب. ولم تقتصر مكانته على الأهداف والمهارات، بل كان يتمتع بعقلية احترافية فريدة، حيث أصبح مصدر إلهام لملايين الشباب حول العالم، ودليلاً على أن العمل الجاد يصنع المستحيل".
     </p>
+
   </div>
 
   <div class="copyright fade-in-element">
@@ -548,6 +639,23 @@
     playIcon.classList.remove('fa-pause');
     playIcon.classList.add('fa-play');
   };
+
+  // Social Icons Click Animation Handlers
+  const icons = document.querySelectorAll('.social-bar a');
+  icons.forEach(icon => {
+    icon.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetUrl = this.href;
+
+      icons.forEach(i => i.classList.remove('clicked'));
+      this.classList.add('clicked');
+      
+      setTimeout(() => {
+        window.open(targetUrl, '_blank');
+        this.classList.remove('clicked');
+      }, 500);
+    });
+  });
 
   // Particles JS Configuration
   particlesJS('particles-js', {
