@@ -146,7 +146,7 @@
             height: min(320px, 70vw);
             margin: 0 auto 24px;
             border-radius: 30px;
-            transition: transform .22s cubic-bezier(.175, .885, .32, 1.275), box-shadow .22s ease;
+            transition: transform .28s cubic-bezier(.25, 1, .5, 1), box-shadow .28s ease;
             will-change: transform
         }
 
@@ -157,21 +157,21 @@
             border-radius: 34px;
             background: linear-gradient(45deg, #7c5aa5, #c18dff, #59427b);
             z-index: -1;
-            opacity: .35;
+            opacity: .3;
             filter: blur(10px);
-            transition: opacity .22s ease, filter .22s ease
+            transition: opacity .28s ease, filter .28s ease
         }
 
         .portrait:hover,
         .portrait:active {
-            transform: translateY(-12px) scale(1.025);
-            box-shadow: 0 18px 35px #bd00ff45
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px #bd00ff35
         }
 
         .portrait:hover:before,
         .portrait:active:before {
-            opacity: .9;
-            filter: blur(16px)
+            opacity: .7;
+            filter: blur(13px)
         }
 
         .portrait img {
@@ -457,19 +457,50 @@
         }
 
         .dock a.clicked {
-            transform: translateY(-8px) scale(1.25) !important
+            transform: translateY(-6px) scale(1.14) !important
         }
 
         .dock a.clicked:after {
             content: "";
             position: absolute;
             inset: 50% auto auto 50%;
-            width: 85px;
-            height: 85px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            z-index: -1;
-            animation: pulse .8s ease-out forwards
+            z-index: 0;
+            animation: pulse .68s ease-out forwards
+        }
+
+        .dock a.clicked>svg {
+            opacity: .22
+        }
+
+        .burst-icon {
+            position: absolute !important;
+            z-index: 2;
+            width: 28px !important;
+            height: 28px !important;
+            color: #fff;
+            pointer-events: none;
+            animation: burstIcon .68s ease-out forwards
+        }
+
+        @keyframes burstIcon {
+            0% {
+                transform: scale(.65);
+                opacity: 0
+            }
+
+            30% {
+                transform: scale(1.15);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: .95
+            }
         }
 
         .dock .tiktok:hover,
@@ -656,7 +687,7 @@
                 <p>خسئت أنت وزمانك</p>
             </header>
             <section class="card fade">
-                <div class="portrait"><img src="k.jpg" alt="᷂كريم ⥈ 𝙃𝘼𝙍𝘿"></div>
+                <div class="portrait"><img src="k.jpg" alt="كريم هارد"></div>
                 <div class="quote"><strong>العقلُ صديقٌ مُخلص، والجهلُ عدوٌ فاضح.</strong><span>- الإمام علي بن أبي طالب
                         (عليه السلام)</span></div><button class="audio" id="audioBox" type="button"><span
                         class="audio-btn" id="playIcon">▶</span><span class="audio-copy"><b>أسامة
@@ -718,7 +749,7 @@
     <script>
         const progress = document.getElementById('progress'); const reveal = () => document.querySelectorAll('.fade').forEach(e => e.classList.add('visible')); window.addEventListener('scroll', () => { const max = document.documentElement.scrollHeight - innerHeight; progress.style.width = (max ? scrollY / max * 100 : 0) + '%'; reveal() }, { passive: true }); reveal();
         const box = document.getElementById('audioBox'), audio = document.getElementById('audio'), play = document.getElementById('playIcon'); box.addEventListener('click', () => { if (audio.paused) { audio.play().catch(() => { }); box.classList.add('playing'); play.textContent = '❚❚' } else { audio.pause(); box.classList.remove('playing'); play.textContent = '▶' } }); audio.addEventListener('ended', () => { box.classList.remove('playing'); play.textContent = '▶' });
-        document.querySelectorAll('.dock a').forEach(a => a.addEventListener('click', () => { a.classList.add('clicked'); setTimeout(() => a.classList.remove('clicked'), 700) }));
+        document.querySelectorAll('.dock a').forEach(a => a.addEventListener('click', event => { event.preventDefault(); a.classList.add('clicked'); const icon = a.querySelector('svg'); const burst = icon ? icon.cloneNode(true) : null; if (burst) { burst.classList.add('burst-icon'); a.appendChild(burst) } const href = a.href; setTimeout(() => { a.classList.remove('clicked'); if (burst) burst.remove(); window.location.href = href }, 680) }));
     </script>
 </body>
 
