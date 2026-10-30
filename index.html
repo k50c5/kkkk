@@ -180,20 +180,17 @@
       border: 1.5px solid rgba(255, 255, 255, 0.15);
   }
 
-  /* Quote Box - الخط الأخضر المضيء أصبح في الجهة اليسرى حصراً */
+  /* Quote Box - الخط الأخضر المضيء في الجهة اليسرى */
   .quote-box { 
       background: #2b2b2b;
       border-radius: 14px; 
       padding: 18px 20px; 
       margin: 30px auto;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      border-right: 1px solid rgba(255, 255, 255, 0.05);
-      border-left: 4px solid var(--accent-green); /* الخط الأخضر المضيء من الجهة اليسرى */
+      border-left: 4px solid var(--accent-green);
       position: relative;
       overflow: hidden;
-      box-shadow: 5px 0 15px rgba(0, 255, 102, 0.15); /* توهج الجانب الأيسر */
+      box-shadow: 5px 0 15px rgba(0, 255, 102, 0.15);
   }
 
   .quote-box .bold { 
@@ -324,8 +321,8 @@
   /* Enhanced Ronaldo Section */
   .ronaldo-card {
     position: relative;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border) !important;
+    background: #181828;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   .ronaldo-card .profile-img-wrapper::before {
@@ -482,7 +479,6 @@
   .social-bar a.tiktok:hover { background: #00f2ea; color: #000; }
   .social-bar a.instagram:hover { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); color: #fff; }
   .social-bar a.telegram:hover { background: #0088cc; color: #fff; }
-  .social-bar a.facebook:hover { background: #1877f2; color: #fff; }
 
   .social-bar a.clicked { 
     transform: translateY(-6px) scale(1.2) !important; 
@@ -508,7 +504,6 @@
 
   .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); }
   .instagram.clicked::after { background: rgba(230, 100, 200, 0.8); }
-  .facebook.clicked::after { background: rgba(24, 119, 242, 0.8); }
   .telegram.clicked::after { background: rgba(0, 136, 204, 0.8); }
 
   .copyright {
@@ -541,7 +536,7 @@
       <img class="main-img" src="k.jpg" alt="كريم ⥈ 𝙃𝘼𝙍𝘿">
     </div>
 
-    <!-- Quote Box بالتصميم النيون الأخضر من الجهة اليسرى -->
+    <!-- Quote Box -->
     <div class="quote-box">
       <div class="bold">العقلُ صديقٌ مُخلص، والجهلُ عدوٌ فاضح.</div>
       <div class="normal">- الإمام علي بن أبي طالب (عليه السلام)</div>
@@ -630,7 +625,6 @@
     <a href="https://www.tiktok.com/@k50c5" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
     <a href="https://www.instagram.com/k50c5?igsh=cWhpZG1lNzRyMTg5" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://t.me/k50c5" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
-    <a href="https://www.facebook.com/@k50c5" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
   </div>
 </div>
 
