@@ -44,7 +44,7 @@
       background: var(--bg-gradient);
       background-attachment: fixed;
       color: var(--text-main); 
-      padding-bottom: 160px; 
+      padding-bottom: 140px; 
       overflow-x: hidden; 
   }
 
@@ -84,9 +84,9 @@
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 720px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 12px;
   }
 
   .fade-in-element { 
@@ -100,56 +100,56 @@
     transform: translateY(0);
   }
 
-  /* Header Section */
+  /* Header Section - تم تصغير الحجم والهوامش لتطابق الصورة تماماً */
   .header-card {
     background: rgba(39, 23, 72, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    margin: 70px auto 25px; 
-    border-radius: 28px;
+    margin: 20px auto 16px; 
+    border-radius: 20px;
     text-align: center;
-    padding: 35px 22px;
+    padding: 16px 14px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    max-width: 480px;
   }
 
   .header-card h1 { 
-    font-size: clamp(23px, 7vw, 38px); 
+    font-size: clamp(17px, 4.5vw, 22px); 
     font-weight: 900; 
     color: #ffffff;
     letter-spacing: -0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
   }
 
   .header-card p { 
-    font-size: clamp(16px, 5.5vw, 26px); 
+    font-size: clamp(13px, 3.5vw, 16px); 
     color: #e0e0e0; 
     font-weight: 700;
-    letter-spacing: 0.5px;
   }
 
-  /* Glass Cards Styling */
+  /* Glass Cards Styling - أحجام مضغوطة مطابقة للصور */
   .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 32px;
+    border-radius: 26px;
     text-align: center;
-    padding: 32px 24px;
-    margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    padding: 20px 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   }
 
   .profile-img-wrapper {
     position: relative;
-    width: min(360px, 70vw); 
-    height: min(320px, 70vw); 
-    margin: 0 auto 24px;
+    width: min(280px, 65vw); 
+    height: min(260px, 65vw); 
+    margin: 0 auto 16px;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 22px;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
   }
@@ -157,83 +157,75 @@
   .profile-img-wrapper::before {
     content: '';
     position: absolute;
-    inset: -5px;
-    border-radius: 34px;
+    inset: -4px;
+    border-radius: 26px;
     background: linear-gradient(45deg, var(--accent-violet), var(--accent-pink), var(--accent-blue));
     z-index: -1;
     opacity: 0.25;
-    filter: blur(10px);
-    transition: opacity 0.6s ease, filter 0.6s ease;
+    filter: blur(8px);
   }
 
   .profile-img-wrapper:hover {
-    transform: translateY(-5px);
-  }
-
-  .profile-img-wrapper:hover::before {
-    opacity: 0.7;
-    filter: blur(14px);
+    transform: translateY(-4px);
   }
 
   .main-img { 
       width: 100%;
       height: 100%;
-      border-radius: 28px; 
+      border-radius: 20px; 
       object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
   }
 
   /* Quote Box */
   .quote-box { 
       background: rgba(39, 23, 72, 0.6);
-      border-radius: 22px; 
-      padding: 22px; 
-      margin: 24px auto;
+      border-radius: 16px; 
+      padding: 14px; 
+      margin: 16px auto;
       border: 1px solid rgba(39, 23, 72, 0.6);
   }
 
   .quote-box .bold { 
     font-weight: 800; 
-    font-size: clamp(18px, 4.8vw, 22px); 
+    font-size: clamp(15px, 4vw, 19px); 
     color: #ffffff; 
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .quote-box .normal { 
-    font-size: clamp(15px, 3.8vw, 17px); 
+    font-size: clamp(13px, 3.4vw, 15px); 
     color: var(--accent-blue); 
-    margin-top: 10px; 
+    margin-top: 6px; 
     font-weight: 700;
   }
 
   /* Islamic Quran Audio Player Styling */
   .quran-player-wrapper {
     background: linear-gradient(135deg, rgba(20, 15, 30, 0.95), rgba(10, 5, 18, 0.95));
-    border-radius: 60px;
-    padding: 14px 24px;
+    border-radius: 40px;
+    padding: 10px 16px;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
     border: 2px solid rgba(255, 190, 11, 0.4);
-    margin-top: 10px;
+    margin-top: 6px;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 190, 11, 0.15);
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 440px;
+    max-width: 380px;
   }
 
   .quran-btn-container {
     position: relative;
-    width: 85px;
-    height: 85px;
-    min-width: 85px;
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #ffbe0b;
-    box-shadow: 0 0 12px rgba(255, 190, 11, 0.5);
+    box-shadow: 0 0 10px rgba(255, 190, 11, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,12 +251,8 @@
   }
 
   @keyframes slowRotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .quran-overlay-btn {
@@ -276,13 +264,8 @@
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 20px;
-    transition: background 0.3s ease;
-    z-index: 2; /* لضمان بقاء زر التشغيل فوق الصورة أثناء دورانها */
-  }
-
-  .quran-player-wrapper:hover .quran-overlay-btn {
-    background: rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    z-index: 2;
   }
 
   .quran-info-text {
@@ -291,7 +274,7 @@
   }
 
   .quran-title {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 900;
     color: #ffffff;
   }
@@ -299,15 +282,15 @@
   .visualizer {
     display: flex;
     align-items: center;
-    gap: 4px;
-    height: 30px;
+    gap: 3px;
+    height: 24px;
   }
 
   .bar {
-    width: 4px;
-    height: 8px;
+    width: 3px;
+    height: 6px;
     background: rgba(255, 190, 11, 0.3);
-    border-radius: 4px;
+    border-radius: 3px;
     transition: height 0.2s ease, background-color 0.3s ease;
   }
 
@@ -323,8 +306,8 @@
   .playing .bar:nth-child(5) { animation-delay: 0.1s; }
 
   @keyframes bounceIslamic {
-    0% { height: 6px; background: rgba(255, 190, 11, 0.5); }
-    100% { height: 28px; background: #ffbe0b; box-shadow: 0 0 10px #ffbe0b; }
+    0% { height: 5px; background: rgba(255, 190, 11, 0.5); }
+    100% { height: 22px; background: #ffbe0b; box-shadow: 0 0 8px #ffbe0b; }
   }
 
   /* Enhanced Ronaldo Section */
@@ -332,33 +315,26 @@
     position: relative;
     background: linear-gradient(135deg, rgba(30, 22, 46, 0.6) 0%, rgba(30, 22, 46, 0.6) 100%);
     border: 1px solid rgba(255, 190, 11, 0.25) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 190, 11, 0.08);
   }
 
   .cr-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: linear-gradient(90deg, #ffbe0b, #ff9f00);
     color: #000;
     font-weight: 900;
-    font-size: 13px;
-    padding: 6px 18px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-    margin-bottom: 18px;
-    box-shadow: 0 0 15px rgba(255, 190, 11, 0.4);
-  }
-
-  .ronaldo-img-wrapper .main-img {
-    object-position: top center; 
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 16px;
+    margin-bottom: 14px;
   }
 
   .ronaldo-title {
-    font-size: clamp(26px, 6.5vw, 34px); 
+    font-size: clamp(22px, 5.5vw, 28px); 
     font-weight: 900;
     color: #ffffff;
-    margin-top: 5px;
+    margin-top: 4px;
   }
 
   .ronaldo-title span {
@@ -368,41 +344,37 @@
   }
 
   .ronaldo-subtitle {
-    font-size: 15px;
+    font-size: 13px;
     color: var(--accent-blue);
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     font-weight: 700;
   }
 
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 22px 0;
+    gap: 10px;
+    margin: 16px 0;
   }
 
   .stat-item {
     background: rgba(255, 190, 11, 0.05);
     border: 1px solid rgba(255, 190, 11, 0.15);
-    padding: 14px 8px;
-    border-radius: 18px;
+    padding: 10px 6px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
-    will-change: transform;
+    transition: transform 0.4s ease;
   }
 
-  .stat-item:hover,
-  .stat-item:active {
-    transform: translateY(-6px);
-    background: rgba(255, 190, 11, 0.12);
-    border-color: rgba(255, 190, 11, 0.5);
-    box-shadow: 0 10px 20px rgba(255, 190, 11, 0.2);
+  .stat-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 190, 11, 0.1);
   }
 
   .stat-icon {
-    width: 42px;
-    height: 42px;
-    margin: 0 auto 8px;
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 6px;
     border-radius: 50%;
     background: rgba(255, 190, 11, 0.1);
     display: flex;
@@ -411,67 +383,62 @@
   }
 
   .stat-icon i {
-    font-size: 18px;
+    font-size: 15px;
     color: var(--accent-gold);
-    transition: transform 0.4s ease;
-  }
-
-  .stat-item:hover .stat-icon i {
-    transform: scale(1.15);
   }
 
   .stat-item h3 {
-    font-size: clamp(18px, 4.5vw, 22px); 
+    font-size: clamp(16px, 4vw, 19px); 
     color: #fff;
     font-weight: 900;
   }
 
   .stat-item p {
-    font-size: clamp(12px, 3.2vw, 14px);
+    font-size: clamp(11px, 2.8vw, 13px);
     color: var(--text-muted);
   }
 
   .ronaldo-text { 
-    font-size: clamp(15px, 4vw, 18px); 
-    line-height: 1.85; 
+    font-size: clamp(13px, 3.5vw, 15px); 
+    line-height: 1.7; 
     color: #d1cbdc; 
     text-align: justify;
     text-justify: inter-word;
-    margin-top: 18px;
+    margin-top: 14px;
   }
 
   /* Social Navigation */
   .social-bar-container {
     position: fixed;
-    bottom: 22px;
+    bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    width: 92%;
-    max-width: 460px;
+    width: 90%;
+    max-width: 380px;
   }
 
   .social-bar {
-    background: rgba(30, 22, 46, 0.6);
+    background: rgba(30, 22, 46, 0.65);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(34, 127, 102, 0.3);
-    border-radius: 60px;
+    border-radius: 50px;
     display: flex; 
     justify-content: space-around; 
     align-items: center; 
-    padding: 12px 18px;
-    box-shadow: 0 15px 35px rgba(19, 12, 52, 0.9), 0 0 20px rgba(189, 0, 255, 0.2);
+    padding: 8px 14px;
+    box-shadow: 0 10px 25px rgba(19, 12, 52, 0.8);
   }
 
   .social-bar a {
     position: relative;
     color: var(--text-main); 
-    font-size: 28px; 
+    font-size: 24px; 
     text-decoration: none !important;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease, background 0.3s ease;
-    width: 62px; 
-    height: 62px;
+    transition: transform 0.3s ease;
+    width: 50px; 
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -487,17 +454,17 @@
 
   .social-bar a:hover,
   .social-bar a:active { 
-      transform: translateY(-5px) scale(1.08);
+      transform: translateY(-4px) scale(1.06);
       color: #fff;
   }
 
-  .social-bar a.tiktok:hover, .social-bar a.tiktok:active { background: #00f2ea; color: #000; box-shadow: 0 0 15px #00f2ea; }
-  .social-bar a.instagram:hover, .social-bar a.instagram:active { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); color: #fff; box-shadow: 0 0 15px #d62976; }
-  .social-bar a.telegram:hover, .social-bar a.telegram:active { background: #0088cc; color: #fff; box-shadow: 0 0 15px #0088cc; }
-  .social-bar a.facebook:hover, .social-bar a.facebook:active { background: #1877f2; color: #fff; box-shadow: 0 0 15px #1877f2; }
+  .social-bar a.tiktok:hover { background: #00f2ea; color: #000; }
+  .social-bar a.instagram:hover { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf); color: #fff; }
+  .social-bar a.telegram:hover { background: #0088cc; color: #fff; }
+  .social-bar a.facebook:hover { background: #1877f2; color: #fff; }
 
   .social-bar a.clicked { 
-    transform: translateY(-8px) scale(1.25) !important; 
+    transform: translateY(-6px) scale(1.2) !important; 
   }
 
   .social-bar a.clicked::after { 
@@ -505,30 +472,29 @@
     position: absolute; 
     top: 50%; 
     left: 50%; 
-    width: 85px; 
-    height: 85px;
+    width: 70px; 
+    height: 70px;
     border-radius: 50%; 
     transform: translate(-50%, -50%); 
     z-index: -1; 
-    animation: pulse 0.8s ease-out forwards; 
+    animation: pulse 0.7s ease-out forwards; 
   }
 
   @keyframes pulse { 
     0% { width: 0; height: 0; opacity: 0.9; } 
-    50% { width: 90px; height: 90px; opacity: 0.5; } 
-    100% { width: 130px; height: 130px; opacity: 0; } 
+    100% { width: 100px; height: 100px; opacity: 0; } 
   }
 
-  .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); box-shadow: 0 0 20px #00f0ff; }
-  .instagram.clicked::after { background: rgba(230, 100, 200, 0.8); box-shadow: 0 0 20px rgba(230, 100, 200, 0.8); }
-  .facebook.clicked::after { background: rgba(24, 119, 242, 0.8); box-shadow: 0 0 20px #1877f2; }
-  .telegram.clicked::after { background: rgba(0, 136, 204, 0.8); box-shadow: 0 0 20px #0088cc; }
+  .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); }
+  .instagram.clicked::after { background: rgba(230, 100, 200, 0.8); }
+  .facebook.clicked::after { background: rgba(24, 119, 242, 0.8); }
+  .telegram.clicked::after { background: rgba(0, 136, 204, 0.8); }
 
   .copyright {
       text-align: center;
       color: var(--text-muted);
-      font-size: 14px;
-      margin-top: 25px;
+      font-size: 13px;
+      margin-top: 18px;
   }
 </style>
 </head>
@@ -544,7 +510,7 @@
 
   <!-- Header Section -->
   <div class="header-card fade-in-element">
-    <h1>آياتيك الزمان بمثلي مرتين؟</h1>
+    <h1>آياتيك الزمان بمثلي مرتين</h1>
     <p>خسئت أنت وزمانك</p>
   </div>
   
