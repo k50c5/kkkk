@@ -14,15 +14,17 @@
 
 <style>
   :root {
-      --bg-gradient: radial-gradient(circle at 50% 0%, #1a0b2e 0%, #08030f 60%, #030106 100%);
-      --glass-bg: rgba(30, 22, 46, 0.6);
-      --glass-border: rgba(52, 29, 56, 0.15);
+      /* الخلفية البترولية الداكنة الجديدة */
+      --bg-gradient: #14232c;
+      /* خلفية البطاقات الداكنة المطابقة للصور */
+      --glass-bg: #212529;
+      --glass-border: rgba(255, 255, 255, 0.08);
       
-      --accent-violet: #bd00ff;
+      --accent-violet: #8a2be2;
       --accent-blue: #00d2ff;
       --accent-pink: #ff007f;
       --accent-gold: #ffbe0b;
-      --accent-red: #ff334b;
+      --accent-red: #8b0000;
       
       --text-main: #ffffff;
       --text-muted: #9a92ab;
@@ -44,7 +46,7 @@
       background: var(--bg-gradient);
       background-attachment: fixed;
       color: var(--text-main); 
-      padding-bottom: 140px; 
+      padding-bottom: 160px; 
       overflow-x: hidden; 
   }
 
@@ -86,7 +88,7 @@
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
-      padding: 0 12px;
+      padding: 0 16px;
   }
 
   .fade-in-element { 
@@ -100,19 +102,17 @@
     transform: translateY(0);
   }
 
-  /* Header Section - تم تصغير الحجم والهوامش لتطابق الصورة تماماً */
+  /* Header Section - تم جعله بلون متناسق مع المربعات */
   .header-card {
-    background: rgba(39, 23, 72, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    margin: 20px auto 16px; 
+    margin: 35px auto 30px; 
     border-radius: 20px;
     text-align: center;
-    padding: 16px 14px;
+    padding: 18px 14px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     max-width: 480px;
   }
 
@@ -121,7 +121,7 @@
     font-weight: 900; 
     color: #ffffff;
     letter-spacing: -0.5px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .header-card p { 
@@ -130,24 +130,23 @@
     font-weight: 700;
   }
 
-  /* Glass Cards Styling - أحجام مضغوطة مطابقة للصور */
+  /* Glass Cards Styling */
   .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 26px;
+    border-radius: 24px;
     text-align: center;
-    padding: 20px 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    padding: 24px 18px;
+    margin-bottom: 45px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
   }
 
+  /* تفاعل الصورة مع التأثير الحركي */
   .profile-img-wrapper {
     position: relative;
     width: min(280px, 65vw); 
     height: min(260px, 65vw); 
-    margin: 0 auto 16px;
+    margin: 0 auto 22px;
     cursor: pointer;
     border-radius: 22px;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
@@ -157,16 +156,22 @@
   .profile-img-wrapper::before {
     content: '';
     position: absolute;
-    inset: -4px;
+    inset: -5px;
     border-radius: 26px;
-    background: linear-gradient(45deg, var(--accent-violet), var(--accent-pink), var(--accent-blue));
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-violet));
     z-index: -1;
     opacity: 0.25;
-    filter: blur(8px);
+    filter: blur(10px);
+    transition: opacity 0.6s ease, filter 0.6s ease;
   }
 
   .profile-img-wrapper:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+  }
+
+  .profile-img-wrapper:hover::before {
+    opacity: 0.7;
+    filter: blur(14px);
   }
 
   .main-img { 
@@ -179,11 +184,11 @@
 
   /* Quote Box */
   .quote-box { 
-      background: rgba(39, 23, 72, 0.6);
+      background: rgba(0, 0, 0, 0.25);
       border-radius: 16px; 
-      padding: 14px; 
-      margin: 16px auto;
-      border: 1px solid rgba(39, 23, 72, 0.6);
+      padding: 16px; 
+      margin: 22px auto;
+      border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .quote-box .bold { 
@@ -196,21 +201,22 @@
   .quote-box .normal { 
     font-size: clamp(13px, 3.4vw, 15px); 
     color: var(--accent-blue); 
-    margin-top: 6px; 
+    margin-top: 8px; 
     font-weight: 700;
   }
 
   /* Islamic Quran Audio Player Styling */
   .quran-player-wrapper {
-    background: linear-gradient(135deg, rgba(20, 15, 30, 0.95), rgba(10, 5, 18, 0.95));
+    background: #181d20;
     border-radius: 40px;
-    padding: 10px 16px;
+    padding: 12px 18px;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    border: 2px solid rgba(255, 190, 11, 0.4);
-    margin-top: 6px;
+    border: 1px solid rgba(255, 190, 11, 0.4);
+    margin-top: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -313,8 +319,14 @@
   /* Enhanced Ronaldo Section */
   .ronaldo-card {
     position: relative;
-    background: linear-gradient(135deg, rgba(30, 22, 46, 0.6) 0%, rgba(30, 22, 46, 0.6) 100%);
-    border: 1px solid rgba(255, 190, 11, 0.25) !important;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border) !important;
+  }
+
+  .ronaldo-card .profile-img-wrapper::before {
+    background: var(--accent-blue);
+    opacity: 0.4;
+    filter: blur(12px);
   }
 
   .cr-badge {
@@ -327,14 +339,18 @@
     font-size: 12px;
     padding: 5px 14px;
     border-radius: 16px;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
+  }
+
+  .ronaldo-img-wrapper .main-img {
+    object-position: top center; 
   }
 
   .ronaldo-title {
     font-size: clamp(22px, 5.5vw, 28px); 
     font-weight: 900;
     color: #ffffff;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
   .ronaldo-title span {
@@ -346,7 +362,7 @@
   .ronaldo-subtitle {
     font-size: 13px;
     color: var(--accent-blue);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     font-weight: 700;
   }
 
@@ -354,7 +370,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 16px 0;
+    margin: 20px 0;
   }
 
   .stat-item {
@@ -400,11 +416,11 @@
 
   .ronaldo-text { 
     font-size: clamp(13px, 3.5vw, 15px); 
-    line-height: 1.7; 
+    line-height: 1.75; 
     color: #d1cbdc; 
     text-align: justify;
     text-justify: inter-word;
-    margin-top: 14px;
+    margin-top: 18px;
   }
 
   /* Social Navigation */
@@ -419,16 +435,16 @@
   }
 
   .social-bar {
-    background: rgba(30, 22, 46, 0.65);
+    background: rgba(20, 35, 44, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(34, 127, 102, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
     display: flex; 
     justify-content: space-around; 
     align-items: center; 
     padding: 8px 14px;
-    box-shadow: 0 10px 25px rgba(19, 12, 52, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
   }
 
   .social-bar a {
@@ -494,7 +510,7 @@
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
-      margin-top: 18px;
+      margin-top: 22px;
   }
 </style>
 </head>
