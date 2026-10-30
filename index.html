@@ -14,9 +14,7 @@
 
 <style>
   :root {
-      /* الخلفية البترولية الداكنة الجديدة من الصورة الأولى */
       --bg-gradient: #14232c;
-      /* خلفية البطاقات الداكنة المطابقة للصور */
       --glass-bg: #212529;
       --glass-border: rgba(255, 255, 255, 0.08);
       
@@ -24,7 +22,7 @@
       --accent-blue: #00d2ff;
       --accent-pink: #ff007f;
       --accent-gold: #ffbe0b;
-      --accent-red: #8b0000;
+      --accent-green: #00ff66;
       
       --text-main: #ffffff;
       --text-muted: #9a92ab;
@@ -46,7 +44,7 @@
       background: var(--bg-gradient);
       background-attachment: fixed;
       color: var(--text-main); 
-      padding-bottom: 160px; 
+      padding-bottom: 180px; 
       overflow-x: hidden; 
   }
 
@@ -105,48 +103,48 @@
   /* Header Section */
   .header-card {
     background: #8b2525;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 35px auto 30px; 
-    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 45px auto 40px; 
+    border-radius: 18px;
     text-align: center;
-    padding: 18px 14px;
+    padding: 22px 18px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
     max-width: 480px;
   }
 
   .header-card h1 { 
-    font-size: clamp(17px, 4.5vw, 22px); 
+    font-size: clamp(18px, 4.8vw, 23px); 
     font-weight: 900; 
     color: #ffffff;
     letter-spacing: -0.5px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .header-card p { 
-    font-size: clamp(13px, 3.5vw, 16px); 
+    font-size: clamp(14px, 3.8vw, 17px); 
     color: #e0e0e0; 
     font-weight: 700;
   }
 
-  /* Glass Cards Styling - اللون الداكن مطابق للصور */
+  /* Glass Cards Styling */
   .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    border-radius: 26px;
     text-align: center;
-    padding: 24px 18px;
-    margin-bottom: 45px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    margin-bottom: 55px;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
   }
 
-  /* تفاعل الصورة مع التأثير الحركي */
+  /* تفاعل الصورة الحركي مع التوهج */
   .profile-img-wrapper {
     position: relative;
     width: min(280px, 65vw); 
     height: min(260px, 65vw); 
-    margin: 0 auto 22px;
+    margin: 0 auto 30px;
     cursor: pointer;
     border-radius: 22px;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
@@ -166,12 +164,12 @@
   }
 
   .profile-img-wrapper:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
   }
 
   .profile-img-wrapper:hover::before {
-    opacity: 0.7;
-    filter: blur(14px);
+    opacity: 0.75;
+    filter: blur(15px);
   }
 
   .main-img { 
@@ -182,26 +180,33 @@
       border: 1.5px solid rgba(255, 255, 255, 0.15);
   }
 
-  /* Quote Box */
+  /* Quote Box - الخط الأخضر المضيء أصبح في الجهة اليسرى حصراً */
   .quote-box { 
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 16px; 
-      padding: 16px; 
-      margin: 22px auto;
+      background: #2b2b2b;
+      border-radius: 14px; 
+      padding: 18px 20px; 
+      margin: 30px auto;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      border-left: 4px solid var(--accent-green); /* الخط الأخضر المضيء من الجهة اليسرى */
+      position: relative;
+      overflow: hidden;
+      box-shadow: 5px 0 15px rgba(0, 255, 102, 0.15); /* توهج الجانب الأيسر */
   }
 
   .quote-box .bold { 
     font-weight: 800; 
-    font-size: clamp(15px, 4vw, 19px); 
+    font-size: clamp(16px, 4.2vw, 20px); 
     color: #ffffff; 
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 8px;
   }
 
   .quote-box .normal { 
-    font-size: clamp(13px, 3.4vw, 15px); 
-    color: var(--accent-blue); 
-    margin-top: 8px; 
+    font-size: clamp(13px, 3.5vw, 15px); 
+    color: #b0b0b0; 
     font-weight: 700;
   }
 
@@ -209,18 +214,18 @@
   .quran-player-wrapper {
     background: #181d20;
     border-radius: 40px;
-    padding: 12px 18px;
+    padding: 14px 20px;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 14px;
     border: 1px solid rgba(255, 190, 11, 0.4);
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
   }
 
   .quran-btn-container {
@@ -316,7 +321,7 @@
     100% { height: 22px; background: #ffbe0b; box-shadow: 0 0 8px #ffbe0b; }
   }
 
-  /* Enhanced Ronaldo Section - خلفية داكنة مع الهالة الزرقاء */
+  /* Enhanced Ronaldo Section */
   .ronaldo-card {
     position: relative;
     background: var(--glass-bg);
@@ -337,9 +342,9 @@
     color: #000;
     font-weight: 900;
     font-size: 12px;
-    padding: 5px 14px;
+    padding: 6px 16px;
     border-radius: 16px;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
   }
 
   .ronaldo-img-wrapper .main-img {
@@ -350,7 +355,7 @@
     font-size: clamp(22px, 5.5vw, 28px); 
     font-weight: 900;
     color: #ffffff;
-    margin-top: 6px;
+    margin-top: 8px;
   }
 
   .ronaldo-title span {
@@ -362,21 +367,21 @@
   .ronaldo-subtitle {
     font-size: 13px;
     color: var(--accent-blue);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-weight: 700;
   }
 
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 20px 0;
+    gap: 12px;
+    margin: 25px 0;
   }
 
   .stat-item {
     background: rgba(255, 190, 11, 0.05);
     border: 1px solid rgba(255, 190, 11, 0.15);
-    padding: 10px 6px;
+    padding: 12px 6px;
     border-radius: 14px;
     cursor: pointer;
     transition: transform 0.4s ease;
@@ -388,9 +393,9 @@
   }
 
   .stat-icon {
-    width: 34px;
-    height: 34px;
-    margin: 0 auto 6px;
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 8px;
     border-radius: 50%;
     background: rgba(255, 190, 11, 0.1);
     display: flex;
@@ -399,7 +404,7 @@
   }
 
   .stat-icon i {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--accent-gold);
   }
 
@@ -416,17 +421,17 @@
 
   .ronaldo-text { 
     font-size: clamp(13px, 3.5vw, 15px); 
-    line-height: 1.75; 
+    line-height: 1.8; 
     color: #d1cbdc; 
     text-align: justify;
     text-justify: inter-word;
-    margin-top: 18px;
+    margin-top: 22px;
   }
 
   /* Social Navigation */
   .social-bar-container {
     position: fixed;
-    bottom: 16px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -510,7 +515,7 @@
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
-      margin-top: 22px;
+      margin-top: 30px;
   }
 </style>
 </head>
@@ -536,9 +541,10 @@
       <img class="main-img" src="k.jpg" alt="كريم ⥈ 𝙃𝘼𝙍𝘿">
     </div>
 
+    <!-- Quote Box بالتصميم النيون الأخضر من الجهة اليسرى -->
     <div class="quote-box">
       <div class="bold">العقلُ صديقٌ مُخلص، والجهلُ عدوٌ فاضح.</div>
-      <div class="normal">الإمام علي بن أبي طالب (عليه السلام)</div>
+      <div class="normal">- الإمام علي بن أبي طالب (عليه السلام)</div>
     </div>
     
     <!-- Islamic Quran Audio Player -->
