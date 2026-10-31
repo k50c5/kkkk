@@ -127,8 +127,6 @@
     color: #e0e0e0; 
     font-weight: 700;
   }
-
-  /* Glass Cards Styling */
   .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -139,7 +137,6 @@
     box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
   }
 
-  /* تفاعل الصور الحركي مع التوهج عند التفاعل */
   .profile-img-wrapper {
     position: relative;
     width: min(280px, 65vw); 
@@ -182,7 +179,6 @@
       border: 1.5px solid rgba(255, 255, 255, 0.15);
   }
 
-  /* Quote Box - الخط الأخضر المضيء في الجهة اليسرى */
   .quote-box { 
       background: #2b2b2b;
       border-radius: 14px; 
@@ -209,7 +205,6 @@
     font-weight: 700;
   }
 
-  /* Islamic Quran Audio Player Styling */
   .quran-player-wrapper {
     background: #181d20;
     border-radius: 40px;
@@ -247,21 +242,23 @@
     border-radius: 50%;
     overflow: hidden;
     position: relative;
+    animation: slowRotate 8s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .quran-player-wrapper.playing .quran-reciter-inner {
+    animation-play-state: running;
+  }
+
+  @keyframes slowRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .quran-reciter-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .quran-player-wrapper.playing .quran-reciter-inner {
-    animation: slowRotate 8s linear infinite;
-  }
-
-  @keyframes slowRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
   }
 
   .quran-overlay-btn {
@@ -283,7 +280,7 @@
   }
 
   .quran-title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 900;
     color: #ffffff;
   }
@@ -319,7 +316,7 @@
     100% { height: 22px; background: #ffbe0b; box-shadow: 0 0 8px #ffbe0b; }
   }
 
-  /* Enhanced Ronaldo Section */
+
   .ronaldo-card {
     position: relative;
     background: #181828;
@@ -374,7 +371,6 @@
     margin: 25px 0;
   }
 
-  /* المربعات الثلاثة - توهج خفيف جداً وناعم بنسبة أقل بكثير */
   .stat-item {
     position: relative;
     background: rgba(255, 190, 11, 0.05);
@@ -447,7 +443,6 @@
     margin-top: 22px;
   }
 
-  /* Social Navigation */
   .social-bar-container {
     position: fixed;
     bottom: 0;
@@ -550,13 +545,13 @@
 
 <div class="scroll-progress"></div>
 
-<!-- Background Elements -->
+
 <div id="particles-js"></div> 
 <canvas id="moon-canvas" width="600" height="600"></canvas>
 
 <div class="content-wrapper">
 
-  <!-- Header Section -->
+
   <div class="header-card fade-in-element">
     <h1>آياتيك الزمان بمثلي مرتين</h1>
     <p>خسئت أنت وزمانك</p>
@@ -568,13 +563,13 @@
       <img class="main-img" src="k.jpg" alt="كريم ⥈ 𝙃𝘼𝙍𝘿">
     </div>
 
-    <!-- Quote Box -->
+
     <div class="quote-box">
       <div class="bold">العقلُ صديقٌ مُخلص، والجهلُ عدوٌ فاضح.</div>
       <div class="normal">- الإمام علي بن أبي طالب (عليه السلام)</div>
     </div>
     
-    <!-- Islamic Quran Audio Player -->
+
     <div class="quran-player-wrapper" id="audioContainer">
       <div class="quran-btn-container">
         <div class="quran-reciter-inner">
@@ -600,26 +595,26 @@
     <audio id="imamAudio" src="krem.mp3"></audio>
   </div>
   
-  <!-- Cristiano Ronaldo Section -->
+
   <div class="glass-card ronaldo-card fade-in-element">
     
-    <!-- Header Badge -->
+
     <div class="cr-badge">
       <i class="fas fa-crown"></i> CR7 · THE GOAT
     </div>
 
-    <!-- صورة كرستيانو -->
+
     <div class="profile-img-wrapper ronaldo-img-wrapper" ontouchstart="">
       <img class="main-img" src="cr.jpg" alt="كريستيانو رونالدو">
     </div>
     
-    <!-- Title -->
+
     <h2 class="ronaldo-title">
       <span>كريستيانو رونالدو</span>
     </h2>
     <p class="ronaldo-subtitle">رمز الشغف والإرادة الحديدية</p>
 
-    <!-- Animated Stats Grid -->
+
     <div class="stats-grid">
       <div class="stat-item" ontouchstart="">
         <div class="stat-icon"><i class="fas fa-futbol"></i></div>
@@ -638,7 +633,7 @@
       </div>
     </div>
 
-    <!-- Body Text -->
+
     <p class="ronaldo-text">
 كريستيانو رونالدو، أسطورة كرة القدم الحديثة، رمز الإصرار والطموح، نجم البرتغال وواجهة المجد الكروي، جمع بين القوة والمهارة والانضباط، فكان مثالاً خالداً في السعي نحو القمة. كان كريستيانو رونالدو من أبرز اللاعبين في تاريخ اللعبة، وبدأ مسيرته شاباً طموحاً حتى أصبح أحد أعظم من لمس الكرة. تألق في أكبر الأندية الأوروبية، وحقق العديد من البطولات والإنجازات الفردية والجماعية، وكان يُعرف بعزيمته التي لا تنكسر وروحه التنافسية العالية داخل الملعب. ولم تقتصر مكانته على الأهداف والمهارات، بل كان يتمتع بعقلية احترافية فريدة، حيث أصبح مصدر إلهام لملايين الشباب حول العالم، ودليلاً على أن العمل الجاد يصنع المستحيل.
     </p>
@@ -651,7 +646,7 @@
 
 </div> 
 
-<!-- Floating Social Navigation -->
+
 <div class="social-bar-container">
   <div class="social-bar">
     <a href="https://www.tiktok.com/@k50c5" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
@@ -661,7 +656,6 @@
 </div>
 
 <script>
-  // Scroll Progress Bar & Reveal Elements
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -678,7 +672,7 @@
 
   window.dispatchEvent(new Event('scroll'));
 
-  // Audio Control
+
   const audioContainer = document.getElementById('audioContainer');
   const playBtn = document.getElementById('playBtn');
   const playIcon = playBtn.querySelector('i');
@@ -704,7 +698,7 @@
     playIcon.classList.add('fa-play');
   };
 
-  // Social Icons Click Animation Handlers
+
   const icons = document.querySelectorAll('.social-bar a');
   icons.forEach(icon => {
     icon.addEventListener('click', function(e) {
@@ -721,7 +715,7 @@
     });
   });
 
-  // Particles JS Configuration
+
   particlesJS('particles-js', {
     "particles": {
       "number": { "value": 25, "density": { "enable": true, "value_area": 800 } },
@@ -738,7 +732,7 @@
     "interactivity": { "events": { "onhover": { "enable": false } } }
   });
 
-  // Smooth 3D Moon Canvas Simulation
+
   const canvas = document.getElementById('moon-canvas');
   const ctx = canvas.getContext('2d');
   
