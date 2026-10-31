@@ -139,7 +139,7 @@
     box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
   }
 
-  /* تفاعل الصورة الحركي مع التوهج */
+  /* تفاعل الصور الحركي مع التوهج عند التفاعل */
   .profile-img-wrapper {
     position: relative;
     width: min(280px, 65vw); 
@@ -156,19 +156,21 @@
     position: absolute;
     inset: -5px;
     border-radius: 26px;
-    background: linear-gradient(45deg, var(--accent-blue), var(--accent-violet));
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-pink), var(--accent-violet));
     z-index: -1;
-    opacity: 0.25;
+    opacity: 0;
     filter: blur(10px);
     transition: opacity 0.6s ease, filter 0.6s ease;
   }
 
-  .profile-img-wrapper:hover {
-    transform: translateY(-6px);
+  .profile-img-wrapper:hover,
+  .profile-img-wrapper:active {
+    transform: translateY(-10px);
   }
 
-  .profile-img-wrapper:hover::before {
-    opacity: 0.75;
+  .profile-img-wrapper:hover::before,
+  .profile-img-wrapper:active::before {
+    opacity: 0.8;
     filter: blur(15px);
   }
 
@@ -253,7 +255,6 @@
     object-fit: cover;
   }
 
-  /* تأثير الدوران عند تشغيل المشغل */
   .quran-player-wrapper.playing .quran-reciter-inner {
     animation: slowRotate 8s linear infinite;
   }
@@ -282,7 +283,7 @@
   }
 
   .quran-title {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 900;
     color: #ffffff;
   }
@@ -326,9 +327,7 @@
   }
 
   .ronaldo-card .profile-img-wrapper::before {
-    background: var(--accent-blue);
-    opacity: 0.4;
-    filter: blur(12px);
+    background: linear-gradient(45deg, var(--accent-blue), #0044ff, var(--accent-violet));
   }
 
   .cr-badge {
@@ -375,18 +374,41 @@
     margin: 25px 0;
   }
 
+  /* المربعات الثلاثة - توهج خفيف جداً وناعم بنسبة أقل بكثير */
   .stat-item {
+    position: relative;
     background: rgba(255, 190, 11, 0.05);
     border: 1px solid rgba(255, 190, 11, 0.15);
     padding: 12px 6px;
     border-radius: 14px;
     cursor: pointer;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    will-change: transform;
   }
 
-  .stat-item:hover {
+  .stat-item::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 15px;
+    background: rgba(255, 190, 11, 0.4);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(2px);
+    transition: opacity 0.3s ease;
+  }
+
+  .stat-item:hover,
+  .stat-item:active {
     transform: translateY(-4px);
     background: rgba(255, 190, 11, 0.1);
+    border-color: rgba(255, 190, 11, 0.35);
+    box-shadow: 0 4px 10px rgba(255, 190, 11, 0.08);
+  }
+
+  .stat-item:hover::before,
+  .stat-item:active::before {
+    opacity: 0.25;
   }
 
   .stat-icon {
@@ -428,35 +450,45 @@
   /* Social Navigation */
   .social-bar-container {
     position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    width: 90%;
-    max-width: 380px;
+    padding: 12px 16px env(safe-area-inset-bottom, 16px);
+    background: rgba(20, 35, 44, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.6);
+  }
+
+  .social-bar-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink), var(--accent-violet));
+    box-shadow: 0 0 10px var(--accent-blue), 0 0 15px var(--accent-pink);
   }
 
   .social-bar {
-    background: rgba(20, 35, 44, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
+    max-width: 480px;
+    margin: 0 auto;
     display: flex; 
     justify-content: space-around; 
     align-items: center; 
-    padding: 8px 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    width: 100%;
   }
 
   .social-bar a {
     position: relative;
     color: var(--text-main); 
-    font-size: 24px; 
+    font-size: 22px; 
     text-decoration: none !important;
     transition: transform 0.3s ease;
-    width: 50px; 
-    height: 50px;
+    width: 46px; 
+    height: 46px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -489,8 +521,8 @@
     position: absolute; 
     top: 50%; 
     left: 50%; 
-    width: 70px; 
-    height: 70px;
+    width: 60px; 
+    height: 60px;
     border-radius: 50%; 
     transform: translate(-50%, -50%); 
     z-index: -1; 
@@ -499,7 +531,7 @@
 
   @keyframes pulse { 
     0% { width: 0; height: 0; opacity: 0.9; } 
-    100% { width: 100px; height: 100px; opacity: 0; } 
+    100% { width: 90px; height: 90px; opacity: 0; } 
   }
 
   .tiktok.clicked::after { background: rgba(0, 240, 255, 0.8); }
@@ -532,7 +564,7 @@
   
   <!-- Imam Ali Section -->
   <div class="glass-card fade-in-element">
-    <div class="profile-img-wrapper">
+    <div class="profile-img-wrapper" ontouchstart="">
       <img class="main-img" src="k.jpg" alt="كريم ⥈ 𝙃𝘼𝙍𝘿">
     </div>
 
@@ -576,8 +608,8 @@
       <i class="fas fa-crown"></i> CR7 · THE GOAT
     </div>
 
-    <!-- Image Frame -->
-    <div class="profile-img-wrapper ronaldo-img-wrapper">
+    <!-- صورة كرستيانو -->
+    <div class="profile-img-wrapper ronaldo-img-wrapper" ontouchstart="">
       <img class="main-img" src="cr.jpg" alt="كريستيانو رونالدو">
     </div>
     
@@ -589,17 +621,17 @@
 
     <!-- Animated Stats Grid -->
     <div class="stats-grid">
-      <div class="stat-item">
+      <div class="stat-item" ontouchstart="">
         <div class="stat-icon"><i class="fas fa-futbol"></i></div>
         <h3>+850</h3>
         <p>هدف رسمي</p>
       </div>
-      <div class="stat-item">
+      <div class="stat-item" ontouchstart="">
         <div class="stat-icon"><i class="fas fa-trophy"></i></div>
         <h3>5x</h3>
         <p>الكرة الذهبية</p>
       </div>
-      <div class="stat-item">
+      <div class="stat-item" ontouchstart="">
         <div class="stat-icon"><i class="fas fa-star"></i></div>
         <h3>5x</h3>
         <p>دوري الأبطال</p>
